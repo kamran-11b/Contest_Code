@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 #define ll long long
-
 
 int main()
 {
-    freopen("A.txt","r",stdin);
-    freopen("B.txt","w",stdout);
+    //freopen("input.txt","r",stdin);
+    //freopen("output.txt","w",stdout);
     ll n;
     cin>>n;
     ll ar[n+2];

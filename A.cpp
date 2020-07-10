@@ -6,6 +6,7 @@ using namespace std;
 #define sin(s)	        getline(cin,s)
 #define ll              long long
 #define ull             unsigned long long
+#define dd              double
 
 int main()
 {
@@ -14,30 +15,29 @@ int main()
     clock_t clk = clock();
     //freopen("input.txt","r",stdin);
     //freopen("output.txt","w",stdout);
-    int t;
+    ll t;
     cin>>t;
     while(t--)
     {
-        ll n,m=0;
-        cin>>n;
-        string s[n+2];
-        for(ll i=0; i<n; i++)
+        ll n,k;
+        cin>>n>>k;
+        ll x=0;
+        for(ll i=1; i<=sqrt(n); i++)
         {
-            cin>>s[i];
-        }
-        for(ll i=0; i<n-1; i++)
-        {
-            for(ll j=0; j<n-1; j++)
+            if(n%i==0)
             {
-                if(s[i][j]=='1' && (s[i+1][j]!='1' && s[i][j+1]!='1'))
-                    m=1;
+                if(n/i==i)
+                {
+                    if(i<=k) x=max(x,i);
+                }
+                else
+                {
+                    if(n/i<=k) x=max(x,n/i);
+                    if(i<=k) x=max(x,i);
+                }
             }
         }
-        if(m==1)
-            NO;
-        else
-            YES;
-
+        cout<<n/x<<endl;
     }
     clk = clock() - clk;
     cerr << "Time Elapsed: " << fixed << setprecision(8) << ((long double)clk)/CLOCKS_PER_SEC << "\n";

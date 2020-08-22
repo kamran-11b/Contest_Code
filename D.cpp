@@ -12,55 +12,62 @@ int main()
     cin>>t;
     while(t--)
     {
-        string s,r;
-        cin>>s>>r;
-        int n=s.length();
-        int hash[n]= {0};
-        for(int i=0; i<n; i++)
+        string s;
+        cin>>s;
+        ll x,y;
+        cin>>x>>y;
+        ll q;
+        cin>>q;
+        while(q--)
         {
-            hash[i]+=(s[i]!=r[i]);
-        }
-        vector<int> v;
-        int count=0;
-        bool beg=0,one=1;
-        for(int i=0; i<n; i++)
-        {
-            if(hash[i]==1)
+            ll x1,y1,c=0;
+            cin>>x1>>y1;
+            bool f=0;
+            for(int i=0; i<s.size(); i++)
             {
-                if(!one)
+                if(s[i]=='R')
                 {
-                    v.push_back(count);
-                    count=0;
-                }
-                count++;
-                one=1;
-                beg=1;
-            }
-            if(beg)
-            {
-                if(hash[i]==0)
-                {
-                    if(one)
+                    if(x<x1)
                     {
-                        v.push_back(count);
-                        count=0;
+                        x++;
+                        c++;
                     }
-                    count++;
-                    one=0;
+                }
+                if(s[i]=='L')
+                {
+                    if(x>x1)
+                    {
+                        x--;
+                        c++;
+                    }
+                }
+                if(s[i]=='U')
+                {
+                    if(y<y1)
+                    {
+                        y++;
+                        c++;
+                    }
+                }
+                if(s[i]=='D')
+                {
+                    if(y>y1)
+                    {
+                        y--;
+                        c++;
+                    }
+                }
+                if(x==x1 && y==y1)
+                {
+                    f=1;
+                    break;
                 }
             }
+            if(f)
+                cout<<"YES"<<" "<<c<<endl;
+            else
+                cout<<"NO"<<endl;
         }
-        if(one)
-            v.push_back(count);
-        ll k=0,l=0;
-        for(int i=0; i<v.size()-2; i+=2)
-        {
-            l+=v[i];
-            k++;
-        }
-        k=k*l;
-
-        cout<<k<<"\n";
     }
     return 0;
 }

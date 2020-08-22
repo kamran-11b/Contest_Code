@@ -6,7 +6,14 @@ using namespace std;
 #define sin(s)	        getline(cin,s)
 #define ll              long long
 #define ull             unsigned long long
-
+ll GCD(ll a,ll b)
+{
+    if(a%b==0)
+    {
+        return b;
+    }
+    return GCD(b,a%b);
+}
 int main()
 {
     ios_base::sync_with_stdio(0);
@@ -18,25 +25,47 @@ int main()
     cin>>t;
     while(t--)
     {
-        ll n,m=0;
+        ll n;
         cin>>n;
-        string s[n+2];
-        for(ll i=0; i<n; i++)
+        vector<ll>v;
+        ll p=100000000000;
+        for(int i=0; i<n; i++)
         {
-            cin>>s[i];
+            ll x;
+            cin>>x;
+            v.push_back(x);
+            p=min(p,x);
         }
-        for(ll i=0; i<n-1; i++)
+        for(int i=0; i<n-1; i++)
         {
-            for(ll j=0; j<n-1; j++)
+            for(int j=i+1; j<n; j++)
             {
-                if(s[i][j]=='1' && (s[i+1][j]!='1' && s[i][j+1]!='1'))
-                    m=1;
+                ll m=GCD(v[i],v[j]);
+                if (m==p)
+                {
+                    if(v[i]>v[j])
+                        swap(v[i],v[j]);
+                }
             }
         }
-        if(m==1)
-            NO;
+        bool f=0;
+        for(int i=1; i<n; i++)
+        {
+            if(v[i-1]<=v[i])
+            {
+                continue;
+            }
+            else
+            {
+                f=1;
+                break;
+            }
+        }
+        if(f==1)
+            cout<<"NO"<<endl;
         else
-            YES;
+            cout<<"YES"<<endl;
+
 
     }
     clk = clock() - clk;

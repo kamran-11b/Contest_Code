@@ -5,16 +5,12 @@ using namespace std;
 
 int main()
 {
-    //freopen("input.txt","r",stdin);
-    //freopen("output.txt","w",stdout);
-    ll n;
-    cin>>n;
-    ll ar[n+2];
-    for(ll i=0; i<n; i++)
-        cin>>ar[i];
-    sort(ar,ar+n);
-    for(ll i=0; i<n; i++)
-        cout<<ar[i]<<" ";
-    cout<<endl;
+    int x=1;
+    while(x++<=1);
+    printf("x = %d\n",x);
+    while(x++<=4);
+    printf("x = %d\n",x);
+    system("pause");
     return 0;
+
 }

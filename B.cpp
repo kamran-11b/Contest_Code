@@ -18,7 +18,7 @@ int main()
     cin>>t;
     while(t--)
     {
-
+        
 
     }
     clk = clock() - clk;

@@ -6,21 +6,36 @@ using namespace std;
 
 int main()
 {
-    freopen("input.txt","r",stdin);
-    freopen("output.txt","w",stdout);
-    int t;
+    //freopen("input.txt","r",stdin);
+    //freopen("output.txt","w",stdout);
+    ll t;
     cin>>t;
     while(t--)
     {
-        int n;
+        ll n;
         cin>>n;
-        for(int i=0;i<n;i++)
+        ll ar[n+2],m=0;
+        for(int i=0; i<n; i++)
         {
-            int x;
-            cin>>x;
-            cout << x <<" ";
+            cin>>ar[i];
+            m+=ar[i];
         }
-        cout << endl;
+        if(m==0)
+            cout<<"NO"<<endl;
+        else
+        {
+            sort(ar,ar+n);
+            cout<<"YES"<<endl;
+            for(int i=0; i<n; i++)
+            {
+                if(sum<0)
+                    cout<<ar[i]<<" ";
+                else
+                    cout<<ar[n-1-i]<<" ";
+
+            }
+            cout<<endl;
+        }
     }
     return 0;
 }

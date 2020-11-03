@@ -12,7 +12,15 @@ using namespace std;
 #define max4(a,b,c,d)   max(max(a,b),max(c,d))
 
 
-#define Pi               2*acos(0.0)
+#define  Pi             2*acos(0.0)
+#define  pi             acos(-1.0)
+#define  cos(a)         cos(a*pi/180)
+#define  sin(a)         sin(a*pi/180)
+#define  tan(a)         tan(a*pi/180)
+#define  cosi(a)        acos(a)/(pi/180)
+#define  sini(a)        asin(a)/(pi/180)
+#define  tani(a)        atan(a)/(pi/180)
+
 #define ms(a,b)          memset(a, b, sizeof(a))
 #define EPS              10E-10
 #define MOD              1000000007
@@ -61,8 +69,11 @@ const long double pi = 3.1415926535;
 
 bool is_prime(int x)
 {
-    if (x < 2)return false;
-    for (int i = 2; i * i <= x; ++i)if (x % i == 0)return false;
+    if (x < 2)
+        return false;
+    for (int i = 2; i * i <= x; ++i)
+        if (x % i == 0)
+            return false;
     return true;
 }
 
@@ -72,7 +83,8 @@ ll power(ll x,ll y,ll p)
     x%=p;
     while(y>0)
     {
-        if(y&1)res=(res*x)%p;
+        if(y&1)
+            res=(res*x)%p;
         y=y>>1;
         x=(x*x)%p;
     }
@@ -227,7 +239,8 @@ int Dsum(int n)
 /************BIG-MOD***************/
 ll bigmod(ll a,ll b,ll mod)
 {
-    if(b==0)return 1;
+    if(b==0)
+        return 1;
     if(b%2==0)
     {
         ll hh=bigmod(a,b/2,mod);
@@ -363,7 +376,8 @@ int fib(int n)
 
 ll Bigmod(ll A,ll B,ll C)
 {
-    if(B==0LL)return 1LL;
+    if(B==0LL)
+        return 1LL;
     ll x=Bigmod(A,B/2LL,C);
     x=(x*x)%C;
     if(B%2==1)
@@ -426,8 +440,12 @@ void dfs(int v)
 int main()
 {
     ios_base::sync_with_stdio(0);
-    //freopen("A.txt","r",stdin);
-    //freopen("A.txt","w",stdout);
+
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
     int a;
     cin>>a;
     cout<<a;

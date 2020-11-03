@@ -1,41 +1,23 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include<stdio.h>
+#include<string.h>
 
-#define ll long long
-
+/*
+void reverse_string(char *ch)
+{
+    for(int i=0; i<strlen(ch)/2; i++)
+    {
+        char c=ch[i];
+        ch[i]=ch[strlen(ch)-i-1];
+        ch[strlen(ch)-i-1]=c;
+    }
+}
 
 int main()
 {
-    //freopen("input.txt","r",stdin);
-    //freopen("output.txt","w",stdout);
-    ll t;
-    cin>>t;
-    while(t--)
-    {
-        ll n;
-        cin>>n;
-        ll ar[n+2],m=0;
-        for(int i=0; i<n; i++)
-        {
-            cin>>ar[i];
-            m+=ar[i];
-        }
-        if(m==0)
-            cout<<"NO"<<endl;
-        else
-        {
-            sort(ar,ar+n);
-            cout<<"YES"<<endl;
-            for(int i=0; i<n; i++)
-            {
-                if(sum<0)
-                    cout<<ar[i]<<" ";
-                else
-                    cout<<ar[n-1-i]<<" ";
-
-            }
-            cout<<endl;
-        }
-    }
-    return 0;
+    char ch[50];
+    scanf("%[^\n]s",&ch);
+    reverse_string(ch);
+    printf("%s\n",ch);
 }
+*/
+
